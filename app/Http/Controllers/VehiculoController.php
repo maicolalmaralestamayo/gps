@@ -27,6 +27,13 @@ class VehiculoController extends Controller
         return HelperCDASI::data(new VehiculoResource($vehiculo));
     }
 
+    //datos de un solo vehículo dado su identificador (id)
+    public function show_matricula($matricula)
+    {
+        $vehiculo = Vehiculo::where('matricula', $matricula)->first();
+        return HelperCDASI::data(new VehiculoResource($vehiculo));
+    }
+
     public function store(VehiculoRequest $request)
     {
         $modelo = new Vehiculo();
