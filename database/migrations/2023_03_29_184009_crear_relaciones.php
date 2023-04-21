@@ -20,8 +20,8 @@ return new class extends Migration
         });
 
         Schema::table('mision_vehiculo', function (Blueprint $table) {
-            $table->foreignId('vehiculo_id')->constrained();
-            $table->foreignId('mision_id')->constrained();
+            $table->foreignId('vehiculo_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('mision_id')->constrained()->cascadeOnDelete();
             $table->unique(['vehiculo_id', 'mision_id']);
         });
 

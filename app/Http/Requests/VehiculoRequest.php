@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CoordenadaRequest extends FormRequest
+class VehiculoRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,18 +14,15 @@ class CoordenadaRequest extends FormRequest
     public function rules()
     {
         return [
-            'datetime' => 'nullable|date',
-            'lat' => 'nullable|numeric',
-            'long' => 'nullable|numeric'
+            'chapa' => 'nullable|size:7|string'
         ];
     }
 
     public function attributes()
     {
         return [
-            'datetime' => '[fecha y hora]',
-            'lat' => '[latitud]',
-            'long' => '[longitud]'
+            'chapa' => '[matrícula]',
+            'tanque' => '[capacidad en litros del tanque]'
         ];
     }
 

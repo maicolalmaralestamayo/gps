@@ -3,19 +3,23 @@
 namespace App\Helpers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class HelperCDASI {
     
-    public static function data(ResourceCollection|JsonResource|null $data,
-                                $state=true,
+    public static function data($data,
+                                bool $state=true,
                                 int $code=200,
-                                $message='Operación realizada satisfactoriamente.'){
+                                string $message='Operación realizada satisfactoriamente.')
+    {
+        if ($data == null){
+            $data = new JsonResource(null);
+        };
 
-        return $data->additional([
-            'state' => $state,
-            'code' => $code,
-            'message' => $message
-        ])->response()->setStatusCode($code);
-    }
+        return $data
+            ->additional([
+                'state' => $state,
+                'code' => $code,
+                'message' => $message
+            ])->response()->setStatusCode($code);
+    }  
 }
