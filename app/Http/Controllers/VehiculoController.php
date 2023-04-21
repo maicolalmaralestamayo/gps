@@ -6,7 +6,6 @@ use App\Helpers\HelperCDASI;
 use App\Http\Requests\VehiculoRequest;
 use App\Http\Resources\VehiculoResource;
 use App\Models\Vehiculo;
-use Illuminate\Http\Request;
 
 class VehiculoController extends Controller
 {
@@ -42,9 +41,18 @@ class VehiculoController extends Controller
         return HelperCDASI::data(new VehiculoResource($modelo), true, 201);
     }
 
-    public function update(Request $request, $id)
+    //actualizar los datos de un vehiculo dado su identificador (id)
+    public function update(VehiculoRequest $request,Vehiculo $vehiculo)
     {
-        //
+        $vehiculo->matricula = $request->chapa;
+        $vehiculo->capacidad = $request->tanque;
+        $vehiculo->modelo_id = $request->modelo;
+        $vehiculo->color_id = $request->color;
+        $vehiculo->combustible_id = $request->combustible;
+        $vehiculo->tipo_id = $request->tipo;
+        $vehiculo->save();
+
+        return HelperCDASI::data(new VehiculoResource($vehiculo), true, 201);
     }
 
     //eliminar un vehiculo

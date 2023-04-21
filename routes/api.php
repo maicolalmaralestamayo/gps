@@ -21,9 +21,8 @@ Route::controller(VehiculoController::class)->group(function(){
     Route::get('vehiculos', 'index');
     Route::get('vehiculos/cant/{cant}', 'index_paginado');
     Route::get('vehiculos/id/{vehiculo}', 'show');
+    
     Route::post('vehiculos', 'store');
-    // Route::get('prueba', 'prueba');
-
-    // Route::delete('vehiculos/{mision}', 'destroy');
+    Route::put('vehiculos/id/{vehiculo}', 'update');
     Route::delete('vehiculos/id/{vehiculo}', 'destroy_vehiculo');
 });
