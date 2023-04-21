@@ -6,6 +6,8 @@ use App\Helpers\HelperCDASI;
 use App\Http\Requests\VehiculoRequest;
 use App\Http\Resources\VehiculoResource;
 use App\Models\Vehiculo;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class VehiculoController extends Controller
 {
