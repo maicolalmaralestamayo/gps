@@ -11,7 +11,7 @@ class MarcaResource extends JsonResource
         return [
             'id_marca' => $this->id,
             'nomb' => $this->nombre,
-            'descrip' => $this->descripcion, 
+            'obs' => $this->observacion, 
             'modelos' => Modelo2Resource::collection($this->modelos) 
         ]; 
     }

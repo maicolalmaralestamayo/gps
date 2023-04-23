@@ -20,7 +20,7 @@ class CombustibleController extends Controller
     {
         $combustible = new Combustible();
         $combustible->nombre = $request->nomb;
-        $combustible->descripcion = $request->descrip;
+        $combustible->observacion = $request->obs;
         $combustible->save();
         $modelo = new CombustibleResource($combustible);
 
@@ -36,7 +36,7 @@ class CombustibleController extends Controller
     public function update(CombustibleRequest $request, Combustible $combustible)
     {
         $combustible->nombre = $request->nomb;
-        $combustible->descripcion = $request->descrip;
+        $combustible->observacion = $request->obs;
         $combustible->update();
         $modelo = new CombustibleResource($combustible);
 

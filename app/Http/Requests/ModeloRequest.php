@@ -15,7 +15,7 @@ class ModeloRequest extends FormRequest
     {
         return [
             'nomb' => 'nullable|string',
-            'descrip' => 'nullable|string',
+            'obs' => 'nullable|string',
             'id_marca' => 'nullable|integer'
         ];
     }
@@ -24,7 +24,7 @@ class ModeloRequest extends FormRequest
     {
         return [
             'nomb' => '[nombre del modelo]',
-            'descrip' => '[descripción del modelo]',
+            'obs' => '[observación del modelo]',
             'id_marca' => '[identificador de la marca]'
         ];
     }

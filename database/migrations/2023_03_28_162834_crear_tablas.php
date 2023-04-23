@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('matricula', '7')->unique()->nullable();
             $table->unsignedDecimal('capacidad')->nullable();
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
 
@@ -19,26 +20,27 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 100);
             $table->string('descripcion')->nullable();
-            $table->string('observación')->nullable();
             $table->unsignedInteger('vehiculos')->nullable();
             $table->unsignedDecimal('tiempo')->nullable();
             $table->dateTime('inicio_planif')->nullable();
             $table->dateTime('inicio_real')->nullable();
             $table->dateTime('final_planif')->nullable();
             $table->dateTime('final_real')->nullable();
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
 
-        Schema::create('mision_vehiculo', function (Blueprint $table) {
-            $table->id();
-            $table->string('cuentamillas_salida', 50)->nullable();
-            $table->string('cuentamillas_entrada', 50)->nullable();
-            $table->unsignedDecimal('combustible_salida')->nullable();
-            $table->unsignedDecimal('combustible_entrada')->nullable();
-            $table->dateTime('salida')->nullable();
-            $table->dateTime('entrada')->nullable();
-            $table->timestamps();
-        });
+        // Schema::create('mision_vehiculo', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('cuentamillas_salida', 50)->nullable();
+        //     $table->string('cuentamillas_entrada', 50)->nullable();
+        //     $table->unsignedDecimal('combustible_salida')->nullable();
+        //     $table->unsignedDecimal('combustible_entrada')->nullable();
+        //     $table->dateTime('salida')->nullable();
+        //     $table->dateTime('entrada')->nullable();
+        //     $table->string('observacion')->nullable();
+        //     $table->timestamps();
+        // });
 
         Schema::create('coordenadas', function (Blueprint $table) {
             $table->id();
@@ -54,28 +56,28 @@ return new class extends Migration
         Schema::create('marcas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', '50')->unique();
-            $table->string('descripcion', '50')->nullable();
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
 
         Schema::create('modelos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', '50')->unique();
-            $table->string('descripcion', '50')->nullable();
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
 
         Schema::create('colors', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', '50')->unique();
-            $table->string('descripcion', '50')->nullable();
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
 
         Schema::create('combustibles', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', '50')->unique();
-            $table->string('descripcion', '50')->nullable();
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
 
@@ -83,7 +85,7 @@ return new class extends Migration
         Schema::create('tipos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', '50')->unique();
-            $table->string('descripcion', '50')->nullable();
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
     }

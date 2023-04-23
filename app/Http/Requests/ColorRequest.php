@@ -15,7 +15,7 @@ class ColorRequest extends FormRequest
     {
         return [
             'nomb' => 'nullable|string',
-            'descrip' => 'nullable|string'
+            'obs' => 'nullable|string'
         ];
     }
 
@@ -23,7 +23,7 @@ class ColorRequest extends FormRequest
     {
         return [
             'nomb' => '[nombre del color]',
-            'descrip' => '[descripción del color]'
+            'obs' => '[observación del color]'
         ];
     }
 

@@ -10,12 +10,12 @@ class CoordenadaFactory extends Factory
     {
         return [
             // 'mision_vehiculo_id' => 1,
-            'fechahora' => $this->faker->dateTime(),
+            'fechahora' => $this->faker->dateTimeThisMonth(),
             'latitud' => $this->faker->latitude(),
             'longitud' => $this->faker->longitude(),
             'estado' => true,
             'observacion' => $this->faker->text(),
-            'vehiculo_id' => 1
+            'vehiculo_id' => random_int(1, 10)
         ];
     }
 }

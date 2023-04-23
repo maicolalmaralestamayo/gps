@@ -20,7 +20,7 @@ class ColorController extends Controller
     {
         $color = new Color();
         $color->nombre = $request->nomb;
-        $color->descripcion = $request->descrip;
+        $color->observacion = $request->obs;
         $color->save();
         $modelo = new ColorResource($color);
 
@@ -36,7 +36,7 @@ class ColorController extends Controller
     public function update(ColorRequest $request, Color $color)
     {
         $color->nombre = $request->nomb;
-        $color->descripcion = $request->descrip;
+        $color->observacion = $request->obs;
         $color->update();
         $modelo = new ColorResource($color);
 

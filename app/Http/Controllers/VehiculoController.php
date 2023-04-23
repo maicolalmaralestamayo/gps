@@ -38,10 +38,11 @@ class VehiculoController extends Controller
         $vehiculo = new Vehiculo();
         $vehiculo->matricula = $request->chapa;
         $vehiculo->capacidad = $request->tanque;
-        $vehiculo->modelo_id = $request->modelo;
-        $vehiculo->color_id = $request->color;
-        $vehiculo->combustible_id = $request->combustible;
-        $vehiculo->tipo_id = $request->tipo;
+        $vehiculo->modelo_id = $request->id_modelo;
+        $vehiculo->color_id = $request->id_color;
+        $vehiculo->combustible_id = $request->id_combustible;
+        $vehiculo->tipo_id = $request->id_tipo;
+        $vehiculo->observacion = $request->obs;
         $vehiculo->save();
         $modelo = new VehiculoResource($vehiculo);
 
@@ -52,17 +53,18 @@ class VehiculoController extends Controller
     {
         $vehiculo->matricula = $request->chapa;
         $vehiculo->capacidad = $request->tanque;
-        $vehiculo->modelo_id = $request->modelo;
-        $vehiculo->color_id = $request->color;
-        $vehiculo->combustible_id = $request->combustible;
-        $vehiculo->tipo_id = $request->tipo;
+        $vehiculo->modelo_id = $request->id_modelo;
+        $vehiculo->color_id = $request->id_color;
+        $vehiculo->combustible_id = $request->id_combustible;
+        $vehiculo->tipo_id = $request->id_tipo;
+        $vehiculo->observacion = $request->obs;
         $vehiculo->update();
         $modelo = new VehiculoResource($vehiculo);
 
         return HelperCDASI::data($modelo, true, 200);
     }
 
-    public function destroy_vehiculo(Vehiculo $vehiculo)
+    public function destroy(Vehiculo $vehiculo)
     {
         $modelo = new VehiculoResource($vehiculo);
         $vehiculo->delete();

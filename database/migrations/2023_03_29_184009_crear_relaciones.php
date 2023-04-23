@@ -19,11 +19,11 @@ return new class extends Migration
             $table->foreignId('tipo_id')->nullable()->constrained()->nullOnDelete();
         });
 
-        Schema::table('mision_vehiculo', function (Blueprint $table) {
-            $table->foreignId('vehiculo_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('mision_id')->constrained()->cascadeOnDelete();
-            $table->unique(['vehiculo_id', 'mision_id']);
-        });
+        // Schema::table('mision_vehiculo', function (Blueprint $table) {
+        //     $table->foreignId('vehiculo_id')->constrained()->cascadeOnDelete();
+        //     $table->foreignId('mision_id')->constrained()->cascadeOnDelete();
+        //     $table->unique(['vehiculo_id', 'mision_id']);
+        // });
 
         Schema::table('coordenadas', function (Blueprint $table) {
             // $table->foreign('mision_vehiculo_id')->references('id')->on('mision_vehiculo')->nullOnDelete();

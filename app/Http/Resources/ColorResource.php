@@ -11,7 +11,7 @@ class ColorResource extends JsonResource
         return [
             'id_color' => $this->id,
             'nomb' => $this->nombre,
-            'descrip' => $this->descripcion
+            'obs' => $this->observacion
         ]; 
     }
 }

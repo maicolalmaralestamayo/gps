@@ -21,7 +21,7 @@ class ModeloController extends Controller
     {
         $model = new Modelo();
         $model->nombre = $request->nomb;
-        $model->descripcion = $request->descrip;
+        $model->observacion = $request->obs;
         $model->marca_id = $request->id_marca;
         $model->save();
         $modelo = new ModeloResource($model);
@@ -38,7 +38,7 @@ class ModeloController extends Controller
     public function update(ModeloRequest $request, Modelo $model)
     {
         $model->nombre = $request->nomb;
-        $model->descripcion = $request->descrip;
+        $model->observacion = $request->obs;
         $model->marca_id = $request->id_marca;
         $model->update();
         $modelo = new ModeloResource($model);

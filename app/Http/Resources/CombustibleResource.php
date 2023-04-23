@@ -12,6 +12,6 @@ class CombustibleResource extends JsonResource
         return [
             'id_combustible' => $this->id,
             'nomb' => $this->nombre,
-            'descrip' => $this->descripcion
+            'obs' => $this->observacion
         ];     }
 }

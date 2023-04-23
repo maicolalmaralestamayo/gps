@@ -20,7 +20,7 @@ class MarcaController extends Controller
     {
         $marca = new Marca();
         $marca->nombre = $request->nomb;
-        $marca->descripcion = $request->descrip;
+        $marca->observacion = $request->obs;
         $marca->save();
         $modelo = new MarcaResource($marca);
 
@@ -36,8 +36,7 @@ class MarcaController extends Controller
     public function update(MarcaRequest $request, Marca $marca)
     {
         $marca->nombre = $request->nomb;
-        $marca->descripcion = $request->descrip;
-        $marca->marca_id = $request->id_marca;
+        $marca->observacion = $request->obs;
         $marca->update();
         $modelo = new MarcaResource($marca);
 

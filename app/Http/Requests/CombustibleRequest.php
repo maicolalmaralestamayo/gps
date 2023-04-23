@@ -15,7 +15,7 @@ class CombustibleRequest extends FormRequest
     {
         return [
             'nomb' => 'nullable|string',
-            'descrip' => 'nullable|string'
+            'obs' => 'nullable|string'
         ];
     }
 
@@ -23,7 +23,7 @@ class CombustibleRequest extends FormRequest
     {
         return [
             'nomb' => '[nombre del combustible]',
-            'descrip' => '[descripción del combustible]'
+            'obs' => '[observación del combustible]'
         ];
     }
 

@@ -10,6 +10,7 @@ class MarcaFactory extends Factory
     {
         return [
             'nombre'=> $this->faker->company(),
+            'observacion'=> $this->faker->text(50)
         ];
     }
 }

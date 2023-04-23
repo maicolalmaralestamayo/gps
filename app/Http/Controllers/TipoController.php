@@ -20,7 +20,7 @@ class TipoController extends Controller
     {
         $tipo = new Tipo();
         $tipo->nombre = $request->nomb;
-        $tipo->descripcion = $request->descrip;
+        $tipo->observacion = $request->obs;
         $tipo->save();
         $modelo = new TipoResource($tipo);
 
@@ -36,7 +36,7 @@ class TipoController extends Controller
     public function update(TipoRequest $request, Tipo $tipo)
     {
         $tipo->nombre = $request->nomb;
-        $tipo->descripcion = $request->descrip;
+        $tipo->observacion = $request->obs;
         $tipo->update();
         $modelo = new TipoResource($tipo);
 

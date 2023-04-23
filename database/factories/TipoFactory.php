@@ -10,6 +10,7 @@ class TipoFactory extends Factory
     {
         return [
             'nombre'=> $this->faker->word(),
+            'observacion'=> $this->faker->text(50)
         ];
     }
 }

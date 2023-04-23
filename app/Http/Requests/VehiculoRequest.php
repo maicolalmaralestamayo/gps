@@ -14,15 +14,18 @@ class VehiculoRequest extends FormRequest
     public function rules()
     {
         return [
-            'chapa' => 'nullable|size:7|string'
+            'chapa' => 'nullable|size:7|string',
+            'tanque' => 'nullable|integer',
+            'obs' => 'nullable|string'
         ];
     }
 
     public function attributes()
     {
         return [
-            'chapa' => '[matrícula]',
-            'tanque' => '[capacidad en litros del tanque]'
+            'chapa' => '[matrícula del vehículo]',
+            'tanque' => '[capacidad en litros del tanque del vehículo]',
+            'obs' => '[observación del vehículo]'
         ];
     }
 

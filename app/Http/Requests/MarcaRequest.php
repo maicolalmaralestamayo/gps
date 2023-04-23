@@ -16,7 +16,7 @@ class MarcaRequest extends FormRequest
         return [
             'id_marca' => 'nullable|integer',
             'nomb' => 'nullable|string',
-            'descrip' => 'nullable|string'
+            'obs' => 'nullable|string'
         ];
     }
 
@@ -25,7 +25,7 @@ class MarcaRequest extends FormRequest
         return [
             'id_marca' => '[identificador de la marca]',
             'nomb' => '[nombre de la marca]',
-            'descrip' => '[descripción de la marca]'
+            'obs' => '[observación de la marca]'
         ];
     }
 

@@ -15,7 +15,7 @@ class TipoRequest extends FormRequest
     {
         return [
             'nomb' => 'nullable|string',
-            'descrip' => 'nullable|string'
+            'obs' => 'nullable|string'
         ];
     }
 
@@ -23,7 +23,7 @@ class TipoRequest extends FormRequest
     {
         return [
             'nomb' => '[nombre del tipo]',
-            'descrip' => '[descripción del tipo]'
+            'obs' => '[observación del tipo]'
         ];
     }
 

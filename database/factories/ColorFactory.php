@@ -10,6 +10,7 @@ class ColorFactory extends Factory
     {
         return [
             'nombre'=> $this->faker->colorName(),
+            'observacion'=> $this->faker->text(50)
         ];
     }
 }
