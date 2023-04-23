@@ -26,7 +26,8 @@ return new class extends Migration
         });
 
         Schema::table('coordenadas', function (Blueprint $table) {
-            $table->foreign('mision_vehiculo_id')->references('id')->on('mision_vehiculo')->nullOnDelete();
+            // $table->foreign('mision_vehiculo_id')->references('id')->on('mision_vehiculo')->nullOnDelete();
+            $table->foreignId('vehiculo_id')->nullable()->constrained()->nullOnDelete()->default(1);
         });
     }
 

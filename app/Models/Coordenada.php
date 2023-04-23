@@ -9,8 +9,13 @@ class Coordenada extends Model
 {
     use HasFactory;
 
-    public function mision_vehiculo()
+    // public function mision_vehiculo()
+    // {
+    //     return $this->belongsTo(Mision_Vehiculo::class);
+    // }
+
+    public function vehiculo()
     {
-        return $this->belongsTo(Mision_Vehiculo::class);
+        return $this->belongsTo(Vehiculo::class);
     }
 }

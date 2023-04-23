@@ -14,18 +14,24 @@ class CoordenadaRequest extends FormRequest
     public function rules()
     {
         return [
-            'datetime' => 'nullable|date',
+            'fechahora' => 'nullable|date',
             'lat' => 'nullable|numeric',
-            'long' => 'nullable|numeric'
+            'long' => 'nullable|numeric',
+            'est' => 'nullable',
+            'obs' => 'nullable|string',
+            'id_vehiculo' => 'nullable|integer'
         ];
     }
 
     public function attributes()
     {
         return [
-            'datetime' => '[fecha y hora]',
+            'fechora' => '[fecha y hora]',
             'lat' => '[latitud]',
-            'long' => '[longitud]'
+            'long' => '[longitud]',
+            'est' => '[estado]',
+            'obs' => '[observación]',
+            'id_vehiculo' => '[identificador del vehículo]'
         ];
     }
 

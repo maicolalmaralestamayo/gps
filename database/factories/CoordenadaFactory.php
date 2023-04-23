@@ -9,10 +9,13 @@ class CoordenadaFactory extends Factory
     public function definition()
     {
         return [
-            'mision_vehiculo_id' => 1,
-            'tiempo' => $this->faker->dateTime(),
+            // 'mision_vehiculo_id' => 1,
+            'fechahora' => $this->faker->dateTime(),
             'latitud' => $this->faker->latitude(),
-            'longitud' => $this->faker->longitude()
+            'longitud' => $this->faker->longitude(),
+            'estado' => true,
+            'observacion' => $this->faker->text(),
+            'vehiculo_id' => 1
         ];
     }
 }

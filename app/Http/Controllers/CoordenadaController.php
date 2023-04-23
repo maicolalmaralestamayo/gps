@@ -9,44 +9,73 @@ use App\Models\Coordenada;
 
 class CoordenadaController extends Controller
 {
-    //obtener las posiciones de un vehículo en una misión (trayectoria, recorrido)
-    public function index($mision)
+    //obtener las todas las coordenadas de un vehiculo
+    public function index_all($vehiculo)
     { 
-        $modelo = CoordenadaResource::collection(Coordenada::where('mision_vehiculo_id', $mision)->get());
+        $modelo = CoordenadaResource::collection(Coordenada::where('vehiculo_id', $vehiculo)
+                                                            ->orderByDesc('fechahora')->get());
         return HelperCDASI::data($modelo);
     }
 
-    //obtener las últimas posiciones de un vehículo en una misión (trayectoria)
-    public function index_ult($mision, $cant)
+    //obtener las últimas coordenadas de un vehículo
+    public function index_cant($vehiculo, $cant)
     {
-        return HelperCDASI::data(CoordenadaResource::collection(Coordenada::where('mision_vehiculo_id', $mision)->
-        orderByDesc('tiempo')->take($cant)->get()));
+        $modelo = CoordenadaResource::collection(Coordenada::where('vehiculo_id', $vehiculo)
+                                                            ->orderByDesc('fechahora')->take($cant)->get());
+        return HelperCDASI::data($modelo);
+    }
+
+    public function index_dia($vehiculo, $dia)
+    { 
+        $modelo = CoordenadaResource::collection(Coordenada::where('vehiculo_id', $vehiculo)
+                                                            ->whereBetween('fechahora', [$dia.' 00:00:00', $dia.' 23:59:59'])
+                                                            ->orderByDesc('fechahora')->get());
+        return HelperCDASI::data($modelo);
+    }
+
+    public function index_rango($vehiculo, $ini, $fin)
+    { 
+        $modelo = CoordenadaResource::collection(Coordenada::where('vehiculo_id', $vehiculo)
+                                                            ->whereBetween('fechahora', [$ini, $fin])
+                                                            ->orderByDesc('fechahora')->get());
+        return HelperCDASI::data($modelo);
     }
 
     //insertar una nueva posición de un vehúcilo en una misión (trayectoria)
-    public function store(CoordenadaRequest $request, $Mision)
+    public function store(CoordenadaRequest $request)
     {
         $modelo = new Coordenada;
-        $modelo->tiempo = $request->datetime;
+        $modelo->fechahora = $request->fechora;
         $modelo->latitud = $request->lat;
         $modelo->longitud = $request->long;
-        $modelo->mision_vehiculo_id = $Mision;
+        $modelo->estado = $request->est;
+        $modelo->observacion = $request->obs;
+        $modelo->vehiculo_id = $request->id_vehiculo;
         $modelo->save();
+        $modelo = new CoordenadaResource($modelo);
 
-        return HelperCDASI::data(new CoordenadaResource($modelo), true, 201);
+        return HelperCDASI::data($modelo, true, 201);
     }
 
     //eliminar la trayectoria de un vehículo (es decir, por la misión)
-    public function destroy($mision)
+    public function destroy_vehiculo($vehiculo)
     {
-        Coordenada::where('mision_vehiculo_id', $mision)->delete();
-        return HelperCDASI::data(null,false, 200);
+        Coordenada::where('vehiculo_id', $vehiculo)->delete();
+        return HelperCDASI::data(null, false);
     }
 
     //eliminar una coordenada específica de un vehículo
     public function destroy_coordenada(Coordenada $coordenada)
     {
+        $modelo = new CoordenadaResource($coordenada);
         $coordenada->delete();
-        return HelperCDASI::data(new CoordenadaResource($coordenada));
+        return HelperCDASI::data($modelo);
+    }
+
+    //obtener una coordenada específica por id de coordenada (no por vehiculo)
+    public function show(Coordenada $coordenada)
+    {
+        $modelo = new CoordenadaResource($coordenada);
+        return HelperCDASI::data($modelo);
     }
 }

@@ -42,10 +42,12 @@ return new class extends Migration
 
         Schema::create('coordenadas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('mision_vehiculo_id')->nullable()->default(1);
-            $table->dateTime('tiempo')->default(today());
-            $table->double('latitud');
-            $table->double('longitud');
+            // $table->unsignedBigInteger('mision_vehiculo_id')->nullable()->default(1);
+            $table->dateTime('fechahora')->default(today());
+            $table->double('latitud')->default(0);
+            $table->double('longitud')->default(0);
+            $table->boolean('estado')->default(false);
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
 

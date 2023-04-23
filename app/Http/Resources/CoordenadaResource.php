@@ -11,12 +11,15 @@ class CoordenadaResource extends JsonResource
     {
         return [
             'id_coordenada' => $this->id,
-            'id_vehiculo' => $this->mision_vehiculo->vehiculo_id,
-            'id_mision' => $this->mision_vehiculo_id,
+            'id_vehiculo' => $this->vehiculo->id,
+            // 'id_vehiculo' => $this->mision_vehiculo->vehiculo_id,
+            // 'id_mision' => $this->mision_vehiculo_id,
 
-            'datetime'=> $this->tiempo,
+            'fechora'=> $this->fechahora,
             'lat' => $this->latitud,
-            'long' => $this->longitud
+            'long' => $this->longitud,
+            'est' => $this->estado,
+            'obs' => $this->observacion,
         ];    
     }
 }
