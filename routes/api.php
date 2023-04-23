@@ -5,6 +5,7 @@ use App\Http\Controllers\CombustibleController;
 use App\Http\Controllers\CoordenadaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ModeloController;
+use App\Http\Controllers\TipoController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
@@ -66,4 +67,13 @@ Route::controller(CombustibleController::class)->group(function(){
     Route::post('combustibles', 'store');
     Route::put('combustibles/{combustible}', 'update');
     Route::delete('combustibles/{combustible}', 'destroy');
+});
+
+Route::controller(TipoController::class)->group(function(){
+    Route::get('tipos', 'index');
+    Route::get('tipos/{tipo}', 'show');
+
+    Route::post('tipos', 'store');
+    Route::put('tipos/{tipo}', 'update');
+    Route::delete('tipos/{tipo}', 'destroy');
 });

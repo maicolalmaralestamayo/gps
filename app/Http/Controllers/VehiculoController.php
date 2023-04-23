@@ -6,51 +6,48 @@ use App\Helpers\HelperCDASI;
 use App\Http\Requests\VehiculoRequest;
 use App\Http\Resources\VehiculoResource;
 use App\Models\Vehiculo;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class VehiculoController extends Controller
 {
-    //lista de todos los vehículos (sin paginar)
     public function index()
     {
-        return HelperCDASI::data(VehiculoResource::collection(Vehiculo::all()));
+        $modelo = VehiculoResource::collection(Vehiculo::all());
+        return HelperCDASI::data($modelo);
     }
     
-    //lista de todos los vehículos (paginado)
     public function index_paginado($cant)
     {
-        return HelperCDASI::data(VehiculoResource::collection(Vehiculo::paginate($cant)));
+        $modelo = VehiculoResource::collection(Vehiculo::paginate($cant));
+        return HelperCDASI::data($modelo);
     }
 
-    //datos de un solo vehículo dado su identificador (id)
     public function show(Vehiculo $vehiculo)
     {
-        return HelperCDASI::data(new VehiculoResource($vehiculo));
+        $modelo = new VehiculoResource($vehiculo);
+        return HelperCDASI::data($modelo);
     }
 
-    //datos de un solo vehículo dado su identificador (id)
     public function show_matricula($matricula)
     {
-        $vehiculo = Vehiculo::where('matricula', $matricula)->first();
-        return HelperCDASI::data(new VehiculoResource($vehiculo));
+        $modelo = new VehiculoResource(Vehiculo::where('matricula', $matricula)->first());
+        return HelperCDASI::data($modelo);
     }
 
     public function store(VehiculoRequest $request)
     {
-        $modelo = new Vehiculo();
-        $modelo->matricula = $request->chapa;
-        $modelo->capacidad = $request->tanque;
-        $modelo->modelo_id = $request->modelo;
-        $modelo->color_id = $request->color;
-        $modelo->combustible_id = $request->combustible;
-        $modelo->tipo_id = $request->tipo;
-        $modelo->save();
+        $vehiculo = new Vehiculo();
+        $vehiculo->matricula = $request->chapa;
+        $vehiculo->capacidad = $request->tanque;
+        $vehiculo->modelo_id = $request->modelo;
+        $vehiculo->color_id = $request->color;
+        $vehiculo->combustible_id = $request->combustible;
+        $vehiculo->tipo_id = $request->tipo;
+        $vehiculo->save();
+        $modelo = new VehiculoResource($vehiculo);
 
-        return HelperCDASI::data(new VehiculoResource($modelo), true, 201);
+        return HelperCDASI::data($modelo, true, 201);
     }
 
-    //actualizar los datos de un vehiculo dado su identificador (id)
     public function update(VehiculoRequest $request,Vehiculo $vehiculo)
     {
         $vehiculo->matricula = $request->chapa;
@@ -60,14 +57,15 @@ class VehiculoController extends Controller
         $vehiculo->combustible_id = $request->combustible;
         $vehiculo->tipo_id = $request->tipo;
         $vehiculo->update();
+        $modelo = new VehiculoResource($vehiculo);
 
-        return HelperCDASI::data(new VehiculoResource($vehiculo), true, 201);
+        return HelperCDASI::data($modelo, true, 200);
     }
 
-    //eliminar un vehiculo
     public function destroy_vehiculo(Vehiculo $vehiculo)
     {
+        $modelo = new VehiculoResource($vehiculo);
         $vehiculo->delete();
-        return HelperCDASI::data(new VehiculoResource($vehiculo));
+        return HelperCDASI::data($modelo);
     }
 }

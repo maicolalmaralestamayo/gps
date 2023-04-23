@@ -2,63 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\HelperCDASI;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\TipoRequest;
+use App\Http\Resources\TipoResource;
+use App\Models\Tipo;
 
 class TipoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $modelo = TipoResource::collection(Tipo::all());
+        return HelperCDASI::data($modelo);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(TipoRequest $request)
     {
-        //
+        $tipo = new Tipo();
+        $tipo->nombre = $request->nomb;
+        $tipo->descripcion = $request->descrip;
+        $tipo->save();
+        $modelo = new TipoResource($tipo);
+
+        return HelperCDASI::data($modelo, true, 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Tipo $tipo)
     {
-        //
+        $modelo = new TipoResource($tipo);
+        return HelperCDASI::data($modelo);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(TipoRequest $request, Tipo $tipo)
     {
-        //
+        $tipo->nombre = $request->nomb;
+        $tipo->descripcion = $request->descrip;
+        $tipo->update();
+        $modelo = new TipoResource($tipo);
+
+        return HelperCDASI::data($modelo, true, 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Tipo $tipo)
     {
-        //
+        $modelo = new TipoResource($tipo);
+        $tipo->delete();
+        return HelperCDASI::data($modelo);
     }
 }
