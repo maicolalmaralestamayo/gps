@@ -18,36 +18,35 @@ class ColorController extends Controller
 
     public function store(ColorRequest $request)
     {
-        $modelo = new Color();
-        $modelo->nombre = $request->nomb;
-        $modelo->descripcion = $request->descrip;
-        $modelo->save();
-        $modelo = new ColorResource($modelo);
+        $color = new Color();
+        $color->nombre = $request->nomb;
+        $color->descripcion = $request->descrip;
+        $color->save();
+        $modelo = new ColorResource($color);
 
         return HelperCDASI::data($modelo, true, 201);
     }
 
-    public function show(Color $marca)
+    public function show(Color $color)
     {
-        $modelo = new ColorResource($marca);
+        $modelo = new ColorResource($color);
         return HelperCDASI::data($modelo);
     }
 
-    public function update(ColorRequest $request, Color $model)
+    public function update(ColorRequest $request, Color $color)
     {
-        $model->nombre = $request->nomb;
-        $model->descripcion = $request->descrip;
-        $model->marca_id = $request->id_marca;
-        $model->update();
-        $modelo = new ColorResource($model);
+        $color->nombre = $request->nomb;
+        $color->descripcion = $request->descrip;
+        $color->update();
+        $modelo = new ColorResource($color);
 
-        return HelperCDASI::data($modelo, true, 201);
+        return HelperCDASI::data($modelo, true, 200);
     }
 
-    public function destroy(Color $model)
+    public function destroy(Color $color)
     {
-        $modelo = new ColorResource($model);
-        $model->delete();
+        $modelo = new ColorResource($color);
+        $color->delete();
         return HelperCDASI::data($modelo);
     }
 }

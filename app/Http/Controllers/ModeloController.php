@@ -19,12 +19,12 @@ class ModeloController extends Controller
 
     public function store(Request $request)
     {
-        $modelo = new Modelo();
-        $modelo->nombre = $request->nomb;
-        $modelo->descripcion = $request->descrip;
-        $modelo->marca_id = $request->id_marca;
-        $modelo->save();
-        $modelo = new ModeloResource($modelo);
+        $model = new Modelo();
+        $model->nombre = $request->nomb;
+        $model->descripcion = $request->descrip;
+        $model->marca_id = $request->id_marca;
+        $model->save();
+        $modelo = new ModeloResource($model);
 
         return HelperCDASI::data($modelo, true, 201);
     }
@@ -43,7 +43,7 @@ class ModeloController extends Controller
         $model->update();
         $modelo = new ModeloResource($model);
 
-        return HelperCDASI::data($modelo, true, 201);
+        return HelperCDASI::data($modelo, true, 200);
     }
 
     public function destroy(Modelo $model)

@@ -18,11 +18,11 @@ class MarcaController extends Controller
 
     public function store(MarcaRequest $request)
     {
-        $modelo = new Marca();
-        $modelo->nombre = $request->nomb;
-        $modelo->descripcion = $request->descrip;
-        $modelo->save();
-        $modelo = new MarcaResource($modelo);
+        $marca = new Marca();
+        $marca->nombre = $request->nomb;
+        $marca->descripcion = $request->descrip;
+        $marca->save();
+        $modelo = new MarcaResource($marca);
 
         return HelperCDASI::data($modelo, true, 201);
     }
@@ -33,21 +33,21 @@ class MarcaController extends Controller
         return HelperCDASI::data($modelo);
     }
 
-    public function update(MarcaRequest $request, Marca $model)
+    public function update(MarcaRequest $request, Marca $marca)
     {
-        $model->nombre = $request->nomb;
-        $model->descripcion = $request->descrip;
-        $model->marca_id = $request->id_marca;
-        $model->update();
-        $modelo = new MarcaResource($model);
+        $marca->nombre = $request->nomb;
+        $marca->descripcion = $request->descrip;
+        $marca->marca_id = $request->id_marca;
+        $marca->update();
+        $modelo = new MarcaResource($marca);
 
-        return HelperCDASI::data($modelo, true, 201);
+        return HelperCDASI::data($modelo, true, 200);
     }
 
-    public function destroy(Marca $model)
+    public function destroy(Marca $marca)
     {
-        $modelo = new MarcaResource($model);
-        $model->delete();
+        $modelo = new MarcaResource($marca);
+        $marca->delete();
         return HelperCDASI::data($modelo);
     }
 }

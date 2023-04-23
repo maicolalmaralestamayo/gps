@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\CombustibleController;
 use App\Http\Controllers\CoordenadaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ModeloController;
@@ -48,11 +50,20 @@ Route::controller(MarcaController::class)->group(function(){
     Route::delete('marcas/{marca}', 'destroy');
 });
 
-Route::controller(MarcaController::class)->group(function(){
+Route::controller(ColorController::class)->group(function(){
     Route::get('colores', 'index');
     Route::get('colores/{color}', 'show');
 
     Route::post('colores', 'store');
     Route::put('colores/{color}', 'update');
     Route::delete('colores/{color}', 'destroy');
+});
+
+Route::controller(CombustibleController::class)->group(function(){
+    Route::get('combustibles', 'index');
+    Route::get('combustibles/{combustible}', 'show');
+
+    Route::post('combustibles', 'store');
+    Route::put('combustibles/{combustible}', 'update');
+    Route::delete('combustibles/{combustible}', 'destroy');
 });

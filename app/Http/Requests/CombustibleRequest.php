@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ColorRequest extends FormRequest
+class CombustibleRequest extends FormRequest
 {
     public function authorize()
     {
@@ -22,8 +22,8 @@ class ColorRequest extends FormRequest
     public function attributes()
     {
         return [
-            'nomb' => '[nombre del color]',
-            'descrip' => '[descripción del color]'
+            'nomb' => '[nombre del combustible]',
+            'descrip' => '[descripción del combustible]'
         ];
     }
 
