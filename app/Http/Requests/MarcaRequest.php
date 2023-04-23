@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ModeloRequest extends FormRequest
+class MarcaRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,18 +14,18 @@ class ModeloRequest extends FormRequest
     public function rules()
     {
         return [
+            'id_marca' => 'nullable|integer',
             'nomb' => 'nullable|string',
-            'descrip' => 'nullable|string',
-            'id_marca' => 'nullable|integer'
+            'descrip' => 'nullable|string'
         ];
     }
 
     public function attributes()
     {
         return [
-            'nomb' => '[nombre del modelo]',
-            'descrip' => '[descripción del modelo]',
-            'id_marca' => '[identificador de la marca]'
+            'id_marca' => '[identificador de la marca]',
+            'nomb' => '[nombre de la marca]',
+            'descrip' => '[descripción de la marca]'
         ];
     }
 

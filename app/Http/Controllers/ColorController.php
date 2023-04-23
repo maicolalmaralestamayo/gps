@@ -4,51 +4,49 @@ namespace App\Http\Controllers;
 
 use App\Helpers\HelperCDASI;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ModeloRequest;
-use App\Http\Resources\ModeloResource;
-use App\Models\Modelo;
-use Illuminate\Http\Request;
+use App\Http\Requests\ColorRequest;
+use App\Http\Resources\ColorResource;
+use App\Models\Color;
 
-class ModeloController extends Controller
+class ColorController extends Controller
 {
     public function index()
     {
-        $modelo = ModeloResource::collection(Modelo::all());
+        $modelo = ColorResource::collection(Color::all());
         return HelperCDASI::data($modelo);
     }
 
-    public function store(Request $request)
+    public function store(ColorRequest $request)
     {
-        $modelo = new Modelo();
+        $modelo = new Color();
         $modelo->nombre = $request->nomb;
         $modelo->descripcion = $request->descrip;
-        $modelo->marca_id = $request->id_marca;
         $modelo->save();
-        $modelo = new ModeloResource($modelo);
+        $modelo = new ColorResource($modelo);
 
         return HelperCDASI::data($modelo, true, 201);
     }
 
-    public function show(Modelo $model)
+    public function show(Color $marca)
     {
-        $modelo = new ModeloResource($model);
+        $modelo = new ColorResource($marca);
         return HelperCDASI::data($modelo);
     }
 
-    public function update(ModeloRequest $request, Modelo $model)
+    public function update(ColorRequest $request, Color $model)
     {
         $model->nombre = $request->nomb;
         $model->descripcion = $request->descrip;
         $model->marca_id = $request->id_marca;
         $model->update();
-        $modelo = new ModeloResource($model);
+        $modelo = new ColorResource($model);
 
         return HelperCDASI::data($modelo, true, 201);
     }
 
-    public function destroy(Modelo $model)
+    public function destroy(Color $model)
     {
-        $modelo = new ModeloResource($model);
+        $modelo = new ColorResource($model);
         $model->delete();
         return HelperCDASI::data($modelo);
     }

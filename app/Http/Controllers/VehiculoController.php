@@ -59,7 +59,7 @@ class VehiculoController extends Controller
         $vehiculo->color_id = $request->color;
         $vehiculo->combustible_id = $request->combustible;
         $vehiculo->tipo_id = $request->tipo;
-        $vehiculo->save();
+        $vehiculo->update();
 
         return HelperCDASI::data(new VehiculoResource($vehiculo), true, 201);
     }

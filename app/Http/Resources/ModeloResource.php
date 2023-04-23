@@ -12,7 +12,8 @@ class ModeloResource extends JsonResource
             'id_modelo' => $this->id,
             'nomb' => $this->nombre,
             'descrip' => $this->descripcion,
-            'id_marc' => $this->marca_id
+            'marca' => ['id_marc' => $this->marca_id,
+                        'marca' => $this->marca->nombre]
         ];  
     }
 }
