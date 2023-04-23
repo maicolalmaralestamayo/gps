@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
         Vehiculo::factory(10)->create();
         Mision::factory(3)->create();
         // Mision_Vehiculo::factory(3)->create();
-        Coordenada::factory(1000)->create();
+        Coordenada::factory(100)->create();
     }
 }
