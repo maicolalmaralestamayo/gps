@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CoordenadaController;
+use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,13 @@ Route::controller(VehiculoController::class)->group(function(){
     Route::post('vehiculos', 'store');
     Route::put('vehiculos/id/{vehiculo}', 'update');
     Route::delete('vehiculos/id/{vehiculo}', 'destroy_vehiculo');
+});
+
+Route::controller(ModeloController::class)->group(function(){
+    Route::get('modelos', 'index');
+    Route::get('modelos/{model}', 'show');
+
+    Route::post('modelos', 'store');
+    Route::delete('modelos/{model}', 'destroy');
+    Route::put('modelos/{model}', 'update');
 });
