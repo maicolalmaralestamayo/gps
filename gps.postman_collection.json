@@ -1,0 +1,984 @@
+{
+	"info": {
+		"_postman_id": "9f62f9b0-70bd-40a6-9777-68447353bc51",
+		"name": "gps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27052922"
+	},
+	"item": [
+		{
+			"name": "coordenada",
+			"item": [
+				{
+					"name": "index all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/coordenadas/1/all",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"coordenadas",
+								"1",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index cant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/coordenadas/1/cant/2",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"coordenadas",
+								"1",
+								"cant",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index dia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/coordenadas/1/dia/2023-04-23",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"coordenadas",
+								"1",
+								"dia",
+								"2023-04-23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index rango",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/coordenadas/1/rango/2023-04-20/2023-04-23",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"coordenadas",
+								"1",
+								"rango",
+								"2023-04-20",
+								"2023-04-23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechora\": \"2023-04-23 10:00:00\",\r\n    \"lat\": 10,\r\n    \"long\": 10,\r\n    \"est\": true,\r\n    \"obs\": \"texto de prueba\",\r\n    \"id_vehiculo\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/coordenadas",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"coordenadas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy_vehiculo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechora\": \"2023-04-23 10:00:00\",\r\n    \"lat\": 10,\r\n    \"long\": 10,\r\n    \"est\": true,\r\n    \"obs\": \"prueba\",\r\n    \"id_vehiculo\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/coordenadas/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"coordenadas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show id_coordenada",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/coordenadas/id/111",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"coordenadas",
+								"id",
+								"111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy id_coordenada",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/coordenadas/id/111",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"coordenadas",
+								"id",
+								"111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "modelo",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/modelos",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"modelos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/modelos/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"modelos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"modelo1\",\r\n    \"obs\": \"texto de prueba\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/modelos",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"modelos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"modelo2\",\r\n    \"obs\": \"texto de prueba\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/modelos/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"modelos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"endgrand3\",\r\n    \"descrip\": \"esta bonito\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/modelos/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"modelos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "marca",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/marcas",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"marcas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/marcas/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"marcas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"geely\",\r\n    \"obs\": \"texto de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/marcas",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"marcas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"marca1\",\r\n    \"obs\": \"texto de prueba\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/marcas/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"marcas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"endgrand3\",\r\n    \"descrip\": \"esta bonito\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/marcas/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"marcas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "color",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/colores",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"colores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/colores/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"colores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"magenta3\",\r\n    \"obs\": \"color más bonito\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/colores",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"colores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"Rippin-Wefrgisozk\",\r\n    \"obs\": \"texto de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/colores/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"colores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"endgrand3\",\r\n    \"descrip\": \"esta bonito\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/colores/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"colores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "combustible",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/combustibles",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"combustibles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/combustibles/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"combustibles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"combustible5\",\r\n    \"obs\": \"combustible más eficiente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/combustibles",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"combustibles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"combustible1\",\r\n    \"obs\": \"texto de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/combustibles/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"combustibles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"endgrand3\",\r\n    \"descrip\": \"esta bonito\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/combustibles/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"combustibles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tipo",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/tipos",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"tipos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/tipos/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"tipos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"tipo2\",\r\n    \"obs\": \"texto de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/tipos",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"tipos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"combustible1\",\r\n    \"obs\": \"texto de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/tipos/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"tipos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"endgrand3\",\r\n    \"descrip\": \"esta bonito\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/tipos/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"tipos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vehiculo",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/vehiculos",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"vehiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index paginado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/vehiculos/pag/2",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"vehiculos",
+								"pag",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/vehiculos/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"vehiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show matricula",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url_gps}}/vehiculos/mat/B960891",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"vehiculos",
+								"mat",
+								"B960891"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chapa\": \"B909883\",\r\n    \"tanque\": 200,\r\n    \"id_tipo\": 1,\r\n    \"id_color\": 1,\r\n    \"id_combustible\": 1,\r\n    \"id_modelo\": 1,\r\n    \"obs\": \"texto de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/vehiculos",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"vehiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chapa\": \"B909884\",\r\n    \"tanque\": 200,\r\n    \"id_tipo\": 1,\r\n    \"id_color\": 1,\r\n    \"id_combustible\": 1,\r\n    \"id_modelo\": 1,\r\n    \"obs\": \"texto de prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/vehiculos/11",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"vehiculos",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomb\": \"endgrand3\",\r\n    \"descrip\": \"esta bonito\",\r\n    \"id_marca\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url_gps}}/vehiculos/1",
+							"protocol": "http",
+							"host": [
+								"{{url_gps}}"
+							],
+							"path": [
+								"vehiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
