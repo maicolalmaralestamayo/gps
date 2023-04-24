@@ -19,7 +19,6 @@ return new class extends Migration
         Schema::create('misions', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 100);
-            $table->string('descripcion')->nullable();
             $table->unsignedInteger('vehiculos')->nullable();
             $table->unsignedDecimal('tiempo')->nullable();
             $table->dateTime('inicio_planif')->nullable();
