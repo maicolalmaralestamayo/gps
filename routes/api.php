@@ -4,10 +4,15 @@ use App\Http\Controllers\ColorController;
 use App\Http\Controllers\CombustibleController;
 use App\Http\Controllers\CoordenadaController;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\MigracionController;
 use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\TipoController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
+
+Route::controller(MigracionController::class)->group(function(){
+    Route::get('migrar', 'migrar');
+});
 
 Route::controller(CoordenadaController::class)->group(function(){
     Route::get('coordenadas/{vehiculo}/all', 'index_all');

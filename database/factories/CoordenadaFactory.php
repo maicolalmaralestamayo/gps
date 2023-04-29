@@ -14,7 +14,7 @@ class CoordenadaFactory extends Factory
             'latitud' => $this->faker->latitude(),
             'longitud' => $this->faker->longitude(),
             'estado' => true,
-            'observacion' => $this->faker->text(),
+            'observacion' => $this->faker->text(100),
             'vehiculo_id' => random_int(1, 10)
         ];
     }

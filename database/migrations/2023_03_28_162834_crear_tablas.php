@@ -91,15 +91,14 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('vehiculos');
-        Schema::dropIfExists('misions');
-        Schema::dropIfExists('mision_vehiculo');
-        Schema::dropIfExists('coordenadas');
-
         Schema::dropIfExists('marcas');
         Schema::dropIfExists('modelos');
         Schema::dropIfExists('tipos');
         Schema::dropIfExists('combustibles');
         Schema::dropIfExists('colors');
+        // Schema::dropIfExists('vehiculos');  
+        Schema::dropIfExists('misions');
+        Schema::dropIfExists('mision_vehiculo');
+        Schema::dropIfExists('coordenadas');  
     }
 };
