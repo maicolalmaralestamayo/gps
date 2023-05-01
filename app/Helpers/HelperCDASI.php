@@ -11,9 +11,9 @@ class HelperCDASI {
                                 int $code=200,
                                 string $message='Operación realizada satisfactoriamente.')
     {
-        if ($data == null){
-            $data = new JsonResource(null);
-        };
+        // if ($data == null){
+        //     $data = new JsonResource(null);
+        // };
 
         return $data
             ->additional([

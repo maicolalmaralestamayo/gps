@@ -13,7 +13,7 @@ class ColorController extends Controller
     public function index()
     {
         $modelo = ColorResource::collection(Color::all());
-        return HelperCDASI::data($modelo);
+        return HelperCDASI::data($modelo); 
     }
 
     public function store(ColorRequest $request)

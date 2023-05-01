@@ -27,8 +27,8 @@ class Handler extends ExceptionHandler
         });
     }
 
-    public function render($request, Throwable $exception)
-    {   
-        return HelperCDASI::data(null, false, 500, $exception->getMessage());    
-    }
+    // public function render($request, Throwable $exception)
+    // {   
+    //     return HelperCDASI::data(null, false, 500, $exception->getMessage());    
+    // }
 }
