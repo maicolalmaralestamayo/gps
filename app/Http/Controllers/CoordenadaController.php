@@ -17,6 +17,14 @@ class CoordenadaController extends Controller
         return HelperCDASI::data($modelo);
     }
 
+    //obtener las todas las coordenadas de un vehiculo, pero paginado segun la cantidad
+    public function index_all_paginado($vehiculo, $cant)
+    { 
+        $modelo = CoordenadaResource::collection(Coordenada::where('vehiculo_id', $vehiculo)
+                                                            ->orderByDesc('fechahora')->paginate($cant));
+        return HelperCDASI::data($modelo);
+    }
+
     //obtener las últimas coordenadas de un vehículo
     public function index_cant($vehiculo, $cant)
     {

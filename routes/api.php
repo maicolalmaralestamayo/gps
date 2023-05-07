@@ -16,6 +16,7 @@ Route::controller(MigracionController::class)->group(function(){
 
 Route::controller(CoordenadaController::class)->group(function(){
     Route::get('coordenadas/{vehiculo}/all', 'index_all');
+    Route::get('coordenadas/{vehiculo}/all/pag/{cant}', 'index_all_paginado');
     Route::get('coordenadas/{vehiculo}/cant/{cant}', 'index_cant');
     Route::get('coordenadas/{vehiculo}/dia/{dia}', 'index_dia');
     Route::get('coordenadas/{vehiculo}/rango/{ini}/{fin}', 'index_rango');
