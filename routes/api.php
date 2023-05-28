@@ -22,6 +22,7 @@ Route::controller(CoordenadaController::class)->group(function(){
     Route::get('coordenadas/{vehiculo}/rango/{ini}/{fin}', 'index_rango');
 
     Route::post('coordenadas', 'store');
+    Route::post('coordenadas/storefile', 'storeFile');
     Route::delete('coordenadas/{vehiculo}', 'destroy_vehiculo');
 
     Route::delete('coordenadas/id/{coordenada}', 'destroy_coordenada');
