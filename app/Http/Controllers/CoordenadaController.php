@@ -68,12 +68,13 @@ class CoordenadaController extends Controller
     //insertar varias posisiciones de un vehículo en una misión (trayectoria) cargadas de un fichero
     public function storeFile(CoordenadaRequest $request)
     {
-        $fichero = fopen('..\resources\habana.gpx', 'r');
+        $fichero = fopen('../resources/habana.gpx', 'r');
         $linea = fgets($fichero);//ignorar la primera línea
 
         while (!feof($fichero)) {
             $linea = fgets($fichero);
             $lineaFragmentada = explode('|', $linea, 3);
+
             $modelo = new Coordenada;
             $modelo->fechahora = $lineaFragmentada[2];
             $modelo->latitud = $lineaFragmentada[0];
